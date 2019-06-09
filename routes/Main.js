@@ -4,7 +4,7 @@ import Firebase from "firebase";
 export default class Main extends React.Component {
   state = { currentUser: null };
   componentDidMount() {
-    const { currentUser } = firebase.auth();
+    const { currentUser } = Firebase.auth();
     this.setState({ currentUser });
   }
   render() {
