@@ -9,10 +9,10 @@ import {
 } from "react-native";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
 
-import Loading from "./Loading";
-import SignUp from "./Signup";
-import Login from "./Login";
-import Main from "./Main";
+import Loading from "./routes/Loading";
+import SignUp from "./routes/Signup";
+import Login from "./routes/Login";
+import Main from "./routes/Main";
 
 import Firebase from "firebase";
 
@@ -38,7 +38,7 @@ export default createAppContainer(
       Main
     },
     {
-      initialRouteName: "Main"
+      initialRouteName: "Loading"
     }
   )
 );
