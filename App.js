@@ -7,14 +7,14 @@ import {
   SafeAreaView,
   Button
 } from "react-native";
-import { SwitchNavigator } from "react-navigation";
+import { createSwitchNavigator, createAppContainer } from "react-navigation";
 
 import Loading from "./Loading";
-import SignUp from "./SignUp";
+import SignUp from "./Signup";
 import Login from "./Login";
 import Main from "./Main";
 
-import firebase from "firebase";
+import Firebase from "firebase";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -29,7 +29,7 @@ var firebaseConfig = {
 // Initialize Firebase
 Firebase.initializeApp(firebaseConfig);
 
-export default SwitchNavigator(
+export default createAppContainer(
   createSwitchNavigator(
     {
       Loading,
@@ -38,7 +38,7 @@ export default SwitchNavigator(
       Main
     },
     {
-      initialRouteName: "Loading"
+      initialRouteName: "Main"
     }
   )
 );
