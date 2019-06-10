@@ -2,7 +2,10 @@ import React from "react";
 import { StyleSheet, Platform, Image, Text, View, Button } from "react-native";
 import Firebase from "firebase";
 export default class Main extends React.Component {
-  state = { currentUser: null };
+  state = {
+    currentUser: null,
+    myRandom: []
+  };
 
   randAll = () => {
     let obj = {
@@ -24,6 +27,7 @@ export default class Main extends React.Component {
     console.log(obj.place);
     console.log(obj.access);
     console.log(obj.outfit);
+    this.setState({ myRandom: obj });
     return obj;
   };
   componentDidMount() {
@@ -37,9 +41,9 @@ export default class Main extends React.Component {
         <Button onPress={this.randAll} title="Play !" type="outline" />
 
         <Text>Hi {currentUser && currentUser.email}!</Text>
-        <Text>Place : {}!</Text>
-        <Text>Accessory : </Text>
-        <Text>Outfit : </Text>
+        <Text>Place : {this.state.myRandom.place} !</Text>
+        <Text>Accessory : {this.state.myRandom.access} </Text>
+        <Text>Outfit : {this.state.myRandom.outfit} </Text>
       </View>
     );
   }
